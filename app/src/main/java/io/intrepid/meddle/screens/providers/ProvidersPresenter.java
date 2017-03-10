@@ -9,6 +9,7 @@ import com.spotify.sdk.android.authentication.AuthenticationResponse;
 
 import io.intrepid.meddle.base.BasePresenter;
 import io.intrepid.meddle.base.PresenterConfiguration;
+import io.intrepid.meddle.models.SpotifyUserProfile;
 import io.intrepid.meddle.models.TokenStorage;
 import io.intrepid.meddle.rest.SpotifyApi;
 import io.intrepid.meddle.rest.SpotifyRetrofitClient;
@@ -65,10 +66,15 @@ public class ProvidersPresenter extends BasePresenter<ProvidersContract.View> im
         TokenStorage tokenStorage = new TokenStorage();
         tokenStorage.token = accessToken;
         SpotifyRetrofitClient.init(tokenStorage);
+        spotifyApi = SpotifyRetrofitClient.getApi();
         Subscription subscription = spotifyApi.getCurrentUserProfile()
                 .compose(subscribeOnIoObserveOnUi())
                 .subscribe(user -> {
-                    //Todo: check premium here
+                    if (user.getAccountType().equals(PREMIUM)) {
+                        view.launchNextActivity();
+                    } else {
+                        view.launchNotPremiumAccountScreen();
+                    }
                 }, RxUtils.logError());
         subscriptions.add(subscription);
     }

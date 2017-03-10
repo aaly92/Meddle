@@ -25,7 +25,7 @@ public abstract class BasePresenter<T extends BaseContract.View> implements Base
     @NonNull
     protected final RestApi restApi;
     @NonNull
-    protected final SpotifyApi spotifyApi;
+    protected SpotifyApi spotifyApi;
     @NonNull
     protected final CrashReporter crashReporter;
 

@@ -28,7 +28,7 @@ android {
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner "io.intrepid.skeleton.CustomTestRunner"
+        testInstrumentationRunner "io.intrepid.meddle.CustomTestRunner"
     }
 
     signingConfigs {
@@ -108,6 +108,7 @@ dependencies {
     // Spotify
     compile(name: 'spotify-android-auth-1.0.0', ext: 'aar')
     compile(name: 'spotify-player-24-noconnect-2.20b', ext: 'aar')
+
 
     // Google play services
     def googlePlayVersion = "10.0.1";

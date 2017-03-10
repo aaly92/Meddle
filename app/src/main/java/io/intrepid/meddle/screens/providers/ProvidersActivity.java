@@ -10,6 +10,7 @@ import butterknife.OnClick;
 import io.intrepid.meddle.R;
 import io.intrepid.meddle.base.BaseMvpActivity;
 import io.intrepid.meddle.base.PresenterConfiguration;
+import io.intrepid.meddle.screens.example1.Example1Activity;
 import io.intrepid.meddle.screens.login.LoginActivity;
 
 public class ProvidersActivity extends BaseMvpActivity<ProvidersContract.Presenter> implements ProvidersContract.View {
@@ -48,7 +49,7 @@ public class ProvidersActivity extends BaseMvpActivity<ProvidersContract.Present
 
     @Override
     public void launchNotPremiumAccountScreen() {
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, Example1Activity.class);
         startActivity(intent);
     }
 }
