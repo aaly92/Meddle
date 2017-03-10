@@ -7,4 +7,7 @@
     <string name="common_remove">Remove</string>
 
     <string name="app_name">Skeleton</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="login_btn">Login</string>
 </resources>

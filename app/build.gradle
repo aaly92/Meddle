@@ -22,12 +22,12 @@ android {
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "io.intrepid.skeleton"
+        applicationId "io.intrepid.meddle"
         minSdkVersion 17
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "io.intrepid.skeleton.CustomTestRunner"
     }
 
@@ -85,6 +85,12 @@ android {
     }
 }
 
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -98,6 +104,10 @@ dependencies {
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile "com.android.support:recyclerview-v7:$supportVersion"
     compile "com.android.support:design:$supportVersion"
+
+    // Spotify
+    compile(name: 'spotify-android-auth-1.0.0', ext: 'aar')
+    compile(name: 'spotify-player-24-noconnect-2.20b', ext: 'aar')
 
     // Google play services
     def googlePlayVersion = "10.0.1";
